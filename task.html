@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="task.css" />
+    <title>RGB Color Slider</title>
+  </head>
+  <body>
+    <h1>RGB SLIDER</h1>
+    <div class="container">
+      <div class="slidecontainer Red">
+        <p>red 0</p>
+        <input
+          type="range"
+          min="0"
+          max="255"
+          value="0"
+          class="slider"
+          id="red"
+          oninput="colors()"
+        />
+        <span class="r-value">255 Value: 0</span>
+      </div>
+      <div class="slidecontainer Green">
+        <p>green 0</p>
+        <input
+          type="range"
+          min="0"
+          max="255"
+          value="0"
+          class="slider"
+          id="green"
+          oninput="colors()"
+        />
+        <span class="g-value">255 Value: 0</span>
+      </div>
+      <div class="slidecontainer Blue">
+        <p>blue 0</p>
+        <input
+          type="range"
+          min="0"
+          max="255"
+          value="0"
+          class="slider"
+          id="blue"
+          oninput="colors()"
+        />
+        <span class="b-value">255 Value: 0</span>
+      </div>
+      <h2>Result Color</h2>
+      <button class="btn"></button>
+    </div>
+    <script>
+      function colors() {
+        let valuer = document.querySelector("#red").value;
+        let valueg = document.querySelector("#green").value;
+        let valueb = document.querySelector("#blue").value;
+        document.querySelector(
+          ".Red"
+        ).style.backgroundColor = `rgb(${valuer},0,0)`;
+        document.querySelector(
+          ".Green"
+        ).style.backgroundColor = `rgb(0,${valueg},0)`;
+        document.querySelector(
+          ".Blue"
+        ).style.backgroundColor = `rgb(0,0,${valueb})`;
+        document.querySelector(
+          ".btn"
+        ).style.backgroundColor = `rgb(${valuer},${valueg},${valueb})`;
+        document.querySelector(".r-value").innerHTML = `255 Value: ${valuer}`;
+        document.querySelector(".g-value").innerHTML = `255 Value: ${valueg}`;
+        document.querySelector(".b-value").innerHTML = `255 Value: ${valueb}`;
+        // console.log(valuer, valueg, valueb);
+      }
+      colors();
+    </script>
+  </body>
+</html>
